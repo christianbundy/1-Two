@@ -1,6 +1,6 @@
 <?php
 //Populates the $english array for numbers 16-19.
-$english = array(
+$e = array(
     0 => 'zero',
     1 => 'one',
     2 => 'two',
@@ -20,21 +20,21 @@ $english = array(
 );
 
 //Prefix for numbers 20-99.
-$prefix = array(
-    2 => 'twenty',
-    3 => 'thirty',
-    4 => 'forty',
-    5 => 'fifty',
-    6 => 'sixty',
-    7 => 'seventy',
-    8 => 'eighty',
-    9 => 'ninety',
+$p = array(
+    2 => 'twen',
+    3 => 'thir',
+    4 => 'for',
+    5 => 'fif',
+    6 => 'six',
+    7 => 'seven',
+    8 => 'eigh',
+    9 => 'nine',
 );
 
 //Populates the $english array for numbers 16-19.
 for ($i = 16; $i <= 19; $i++) {
     $b = substr($i, -1, 1);
-    $english[$i] = $english[$b] . "teen";
+    $e[$i] = $e[$b] . "teen";
 }
 
 //Populates the $english array for numbers 20-99.
@@ -42,13 +42,13 @@ for ($i = 20; $i <= 99; $i++) {
     $a = substr($i, -2, 1);
     $b = substr($i, -1, 1);
     if (!$b == 0) {
-        $english[$i] = $prefix[$a] . '-' . $english[$b];
+        $e[$i] = $p[$a] . 'ty-' . $e[$b];
     } else {
-        $english[$i] = $prefix[$a];
+        $e[$i] = $p[$a] . 'ty';
     }
 }
 
 //Usage
-echo 'Easy as ' . $english[1] . ' ' . $english[2] . ' ' . $english[3] . '.';
+echo 'Easy as ' . $e[1] . ' ' . $e[2] . ' ' . $e[3] . '.';
 
 ?>
